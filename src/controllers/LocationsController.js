@@ -8,7 +8,7 @@ export class LocationsController extends BaseController {
         super('api/locations')
         this.router
             .get('', this.getLocations)
-            .get('/:locationId', this.hotLocations)
+            .get('/:locationId/missions', this.hotLocations)
     }
     async hotLocations(request, response, next) {
         try {

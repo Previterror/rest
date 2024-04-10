@@ -5,7 +5,7 @@ class MissionsService {
 
 
     async hotLocations(locationId) {
-        const hotlocations = await dbContext.Missions.find({ locationId: locationId })
+        const hotlocations = await dbContext.Missions.find({ locationId: locationId }).populate('rat', 'callsign')
         return hotlocations
     }
     async getMyMissions(ratId) {
