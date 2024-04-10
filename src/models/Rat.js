@@ -5,5 +5,5 @@ export const RatSchema = new Schema({
     name: { type: String },
     callsign: { type: String },
     picture: { type: String },
-    specialties: []
+    specialties: [{ type: String }]
 })
