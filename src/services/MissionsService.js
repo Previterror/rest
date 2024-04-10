@@ -2,6 +2,12 @@ import { dbContext } from "../db/DbContext.js"
 
 
 class MissionsService {
+
+
+    async hotLocations(locationId) {
+        const hotlocations = await dbContext.Missions.find({ locationId: locationId })
+        return hotlocations
+    }
     async getMyMissions(ratId) {
         const missions = await dbContext.Missions.find({ ratId: ratId }).populate('location')
         return missions

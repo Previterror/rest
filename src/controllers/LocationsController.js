@@ -1,4 +1,5 @@
 import { locationsService } from "../services/LocationsService.js"
+import { missionsService } from "../services/MissionsService.js"
 import BaseController from "../utils/BaseController.js"
 
 
@@ -9,9 +10,11 @@ export class LocationsController extends BaseController {
             .get('', this.getLocations)
             .get('/:locationId', this.hotLocations)
     }
-    hotLocations(request, response, next) {
+    async hotLocations(request, response, next) {
         try {
-
+            const locationId = request.params.locationId
+            const hotlocations = await missionsService.hotLocations(locationId)
+            response.send(hotlocations)
         } catch (error) {
             next(error)
         }
