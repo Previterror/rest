@@ -7,6 +7,17 @@ export class MissionsController extends BaseController {
         super('api/missions')
         this.router
             .get('', this.getMissions)
+            .post('', this.assignMissions)
+    }
+
+    async assignMissions(request, response, next) {
+        try {
+            const missionData = request.body
+            const mission = await missionsService.assignMissions(missionData)
+            response.send(mission)
+        } catch (error) {
+            next(error)
+        }
     }
     async getMissions(request, response, next) {
         try {

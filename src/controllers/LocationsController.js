@@ -7,6 +7,14 @@ export class LocationsController extends BaseController {
         super('api/locations')
         this.router
             .get('', this.getLocations)
+            .get('/:locationId', this.hotLocations)
+    }
+    hotLocations(request, response, next) {
+        try {
+
+        } catch (error) {
+            next(error)
+        }
     }
 
     async getLocations(request, response, next) {
