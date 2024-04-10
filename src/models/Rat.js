@@ -6,4 +6,6 @@ export const RatSchema = new Schema({
     callsign: { type: String },
     picture: { type: String },
     specialties: [{ type: String }]
+}, {
+    toJSON: { virtuals: true }
 })
